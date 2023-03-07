@@ -1,5 +1,8 @@
 import java.util.*;
 // adding comments in progress for other classes
+// (Review Comments I'll put in parentheses)
+
+import javax.print.DocFlavor.INPUT_STREAM;
 
 public class Game {
 
@@ -52,9 +55,18 @@ public class Game {
     public static void actions(Room location, Player player) {  // action options method takes player object and room object
         Scanner input = new Scanner(System.in);
         char action = 'q';
+        
         do {    // do/while loop - player can heal or examine room repeatedly, loop eneds when 'n' is chosen
             System.out.println("What will you do? [e]xamine room, [h]eal, or move to the [n]ext room?");
-            action = input.nextLine().charAt(0);
+            
+             //(If the user inputted nothing, your program would crash before because there is no 0 index of a blank string)
+             String str = input.nextLine();// character input options of 'a' or 'h'
+             if(!str.equals("")){ //(makes sure the user inputted some string before taking the first character)
+                action = str.charAt(0);     
+             }
+            
+            
+            
             if (action == 'e') {
                 location.examine(); // examining room is a method under the Room class
             } else if (action == 'h') {
@@ -74,7 +86,14 @@ public class Game {
         } else {    // fight options occur if player has >0 HP
             System.out.println(enemy + " HP: " + enemy.getHP() + "\n");     // displays enemy HP
             System.out.println("Will you [a]ttack or [h]eal?");
-            char attackChoice = attackInput.nextLine().charAt(0);   // character input options of 'a' or 'h'
+
+            //(If the user inputted nothing, your program would crash before because there is no 0 index of a blank string)
+            String input = attackInput.nextLine();// character input options of 'a' or 'h'
+            char attackChoice = ' ';
+            if(!input.equals("")){ //(makes sure the user inputted some string before taking the first character)
+                attackChoice = input.charAt(0);      
+            }
+            
             if (attackChoice == 'a') {      // 'a' is attack - deals damage to enemy
                 System.out.println("You slice at the " + enemy + "!");
                 int damageDealt = rand.nextInt(5) + enemy.getEnNumber();    // damage dealt is a random int below 5 plus enemy number
@@ -84,6 +103,7 @@ public class Game {
                 player.heal();  // heal is a method under the Player class
                 System.out.println("Player HP: " + player.getHP());
             }
+
             int enemyAttack = rand.nextInt(2);  // whether or not an enemy attacks is 50/50
             if (enemyAttack == 1 && enemy.getHP() > 0) {    // also checks if enemy HP is above 0 so that it cannot attack once defeated
                 System.out.println("The " + enemy + " attacks you!");
