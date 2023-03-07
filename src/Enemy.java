@@ -6,7 +6,7 @@ public class Enemy {
     private String enemyName;
     private static final String[] enemyType = {null, "Bat", "Goblin", "Skeleton", "Zombie"};
     
-    public Enemy(int enNumber) {
+    public Enemy(int enNumber) {    // sets Enemy to given value - assigns HP amount and 'name' based on given enemyNumber
         this.enemyNumber = enNumber;
         this.enemyName = enemyType[this.enemyNumber];
         if (this.enemyNumber == 0) {
@@ -25,7 +25,7 @@ public class Enemy {
         return this.enemyName;
     }
 
-    public int attack() {
+    public int attack() {       // attack method generates random int equal to enemyNumber or less, then adds it to enemyNumber & returns as int
         Random rand = new Random();
         int damageRNG = rand.nextInt(this.enemyNumber + 1);
         int damage = this.enemyNumber + damageRNG;
@@ -34,7 +34,7 @@ public class Enemy {
     public int getHP() {
         return this.hitPoints;
     }
-    public void damage(int damage) {
+    public void damage(int damage) {    // damage method takes int input and reduces enemy HP value by that amuont
         this.hitPoints = this.hitPoints - damage;
     }
     public int getEnNumber() {
