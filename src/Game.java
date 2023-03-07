@@ -59,7 +59,7 @@ public class Game {
         do {    // do/while loop - player can heal or examine room repeatedly, loop eneds when 'n' is chosen
             System.out.println("What will you do? [e]xamine room, [h]eal, or move to the [n]ext room?");
             
-             //(If the user inputted nothing, your program would crash before because there is no 0 index a blank string)
+             //(If the user inputted nothing, your program would crash before because there is no 0 index of a blank string)
              String str = input.nextLine();// character input options of 'a' or 'h'
              if(!str.equals("")){ //(makes sure the user inputted some string before taking the first character)
                 action = str.charAt(0);     
@@ -87,7 +87,7 @@ public class Game {
             System.out.println(enemy + " HP: " + enemy.getHP() + "\n");     // displays enemy HP
             System.out.println("Will you [a]ttack or [h]eal?");
 
-            //(If the user inputted nothing, your program would crash before because there is no 0 index on nothing)
+            //(If the user inputted nothing, your program would crash before because there is no 0 index of a blank string)
             String input = attackInput.nextLine();// character input options of 'a' or 'h'
             char attackChoice = ' ';
             if(!input.equals("")){ //(makes sure the user inputted some string before taking the first character)
