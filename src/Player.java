@@ -45,6 +45,10 @@ public class Player {
     public void damage(int damage) {    // damage method takes int and reduces player's HP by that amount
         this.hitPoints = this.hitPoints - damage;
     }
+
+    public int getNumberHeals() {
+        return this.numberHeals;
+    }
     
 
 }

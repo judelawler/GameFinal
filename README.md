@@ -1,32 +1,11 @@
 ## Adventure Game Final
 
-Instructions and Description to be added.
+This Adventure Game is a brief journey through a dungeon; you must make your way through the dungeon's three rooms before you emerge on the other side of a mountain. 
 
+The game will give you a set of options in each room, and at several points you will have to fight an enemy to be able to continue - if you are able to make it through all three rooms without dying, you will win, but if your HP drops to 0, you will lose.
 
+No outside tools were used in the creation of this project other than the few imported classes. 
 
+I contributed to this project by writing the majority of the game's code and by planning how the game would be structured.
 
-## Peer Review Feedback - ALec Nguyen
-
-1. In the **Game** class, I would modify the main() method to add a loop to allow the player to play again:
-
-```
-boolean playAgain = true;
-Scanner scanner = new Scanner(System.in);
-
-while (playAgain) {
-    Game game = new Game();
-    game.play();
-    System.out.println("Play again? (y/n)");
-    String input = scanner.nextLine();
-    playAgain = input.equalsIgnoreCase("y");
-}
-```
-
-2. In the **Player** class, I would add a getter for the numberHeals field so that it can be accessed outside the class:
-
-```
-public int getNumberHeals() {
-    return this.numberHeals;
-}
-```
-Overall, the program seems to work well, but I think these changes could improve the game experience and make the code more modular and reusable.
+To run this game, you will need to download the java files and run Game.java.
